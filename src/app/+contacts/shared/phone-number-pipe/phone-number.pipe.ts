@@ -14,7 +14,7 @@ export class PhoneNumberPipe implements PipeTransform {
     if (this.isPhoneNumberValid(value)) {
       formattedPhoneNumber = this.getFormattedPhoneNumber(value.toString(), format);
     } else {
-      console.error(PhoneNumberErrorMessages.invalidPhoneNumber);
+      console.error(PhoneNumberErrorMessages.INVALID_PHONE_NUMBER);
     }
 
     return formattedPhoneNumber;
@@ -25,10 +25,10 @@ export class PhoneNumberPipe implements PipeTransform {
     return !isNaN(phoneNumber) && phoneNumber.toString().length === VALID_PHONE_LENGTH;
   }
 
-  private getFormattedPhoneNumber(value, format): string {
+  private getFormattedPhoneNumber(value: string, format: string = ''): string {
     const phoneNumber = new PhoneNumber(value);
 
-    switch (format.toLocaleLowerCase()) {
+    switch (format.toLowerCase()) {
       case 'dots':
         return phoneNumber.getDotsFormattedPhoneNumber();
       case 'hyphens':
