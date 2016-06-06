@@ -1,0 +1,31 @@
+<div *caShowContacts="contacts.length">
+  <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric"></th>
+        <th class="mdl-data-table__cell--non-numeric">Name</th>
+        <th class="mdl-data-table__cell--non-numeric">Email</th>
+        <th class="mdl-data-table__cell--non-numeric">Number</th>
+        <th class="mdl-data-table__cell--non-numeric"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contact of contacts">
+        <td class="mdl-data-table__cell--non-numeric"><i class="fa fa-user fa-lg"></i></td>
+        <td class="mdl-data-table__cell--non-numeric">{{ contact.name }}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{ contact.email }}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{ 2341233423 | phoneNumber: "HYPHENS" }}</td>
+        <td class="mdl-data-table__cell--non-numeric"><i [caFavoriteIcon]="contact.favorite"></i></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <button (click)="deleteContacts()"
+      class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Delete Contacts</button>
+</div>
+
+<div *caShowContacts="!contacts.length">
+  <h6 class="noContactsMsg">{{ noContactsMessage }}</h6>
+  <button (click)="addContacts()"
+      class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Add Contacts</button>
+</div>
