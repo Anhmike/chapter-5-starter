@@ -2,7 +2,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 import { PhoneNumber } from './phone-number.model';
 import { phoneNumberErrorMessages } from './phone-number-error-messages';
-import { telephoneCountryCodes } from './phone-number-country-codes';
 
 /**
  * PhoneNumberPipe
@@ -62,43 +61,29 @@ import { telephoneCountryCodes } from './phone-number-country-codes';
 export class PhoneNumberPipe implements PipeTransform {
 
   transform(value: string, format?: string, countryCode?: string): string {
-    let formattedPhoneNumber = '';
+    let phoneNumber: PhoneNumber = null;
+    let formattedPhoneNumber: string = '';
 
     if (this.isPhoneNumberValid(value)) {
-      formattedPhoneNumber = this.getFormattedPhoneNumber(value.toString(), format);
-    } else {
-      console.error(phoneNumberErrorMessages.INVALID_PHONE_NUMBER);
-    }
-
-    if (countryCode) {
-      formattedPhoneNumber = this.getInternationCountryCode(countryCode) + ' ' + formattedPhoneNumber;
+      phoneNumber = new PhoneNumber(value);
+      formattedPhoneNumber = phoneNumber.getFormattedPhoneNumber(format, countryCode);
     }
 
     return formattedPhoneNumber;
   }
 
   private isPhoneNumberValid(phoneNumber: any): boolean {
-    const VALID_PHONE_LENGTH = 10;
-    return !isNaN(phoneNumber) && 
-        phoneNumber.toString().length === VALID_PHONE_LENGTH;
-  }
+    const VALID_PHONE_LENGTH: number = 10;
+    let isPhoneNumberValid: boolean = false;
 
-  private getFormattedPhoneNumber(value: string, format: string = ''): string {
-    const phoneNumber = new PhoneNumber(value);
-
-    switch (format.toLowerCase()) {
-      case 'default':
-        return phoneNumber.getDefaultFormattedPhoneNumber();
-      case 'dots':
-        return phoneNumber.getDotsFormattedPhoneNumber();
-      case 'hyphens':
-        return phoneNumber.getHyphensFormattedPhoneNumber();
-      default:
-        return phoneNumber.getDefaultFormattedPhoneNumber();
+    if (isNaN(phoneNumber)) {
+      console.error(phoneNumberErrorMessages.INVALID_PHONE_NUMBER_TYPE_ERR);
+    } else if (phoneNumber.toString().length !== VALID_PHONE_LENGTH) {
+      console.error(phoneNumberErrorMessages.INVALID_PHONE_NUMBER_LENGTH_ERR);
+    } else {
+      isPhoneNumberValid = true;
     }
-  }
 
-  private getInternationCountryCode(value: string): string {
-    return `+${ telephoneCountryCodes[value] }`
+    return isPhoneNumberValid;
   }
 }
