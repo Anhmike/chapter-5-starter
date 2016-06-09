@@ -9,6 +9,8 @@ export const telephoneCountryCodes = {
     'asm': 16,
     'ad': 20,
     'and': 20,
+    'ao': 244,
+    'ago': 244,
     'us': 1,
     'usa': 1,
     'um': 1,
