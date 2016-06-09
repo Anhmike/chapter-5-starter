@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 import { PhoneNumber } from './phone-number.model';
-import { phoneNumberErrorMessages } from './phone-number-error-messages';
+import { PhoneNumberErrorMessages } from './phone-number-error-messages';
 
 /**
  * PhoneNumberPipe
@@ -77,9 +77,9 @@ export class PhoneNumberPipe implements PipeTransform {
     let isPhoneNumberValid: boolean = false;
 
     if (isNaN(phoneNumber)) {
-      console.error(phoneNumberErrorMessages.INVALID_PHONE_NUMBER_TYPE_ERR);
+      console.error(PhoneNumberErrorMessages.INVALID_PHONE_NUMBER_TYPE_ERR);
     } else if (phoneNumber.toString().length !== VALID_PHONE_LENGTH) {
-      console.error(phoneNumberErrorMessages.INVALID_PHONE_NUMBER_LENGTH_ERR);
+      console.error(PhoneNumberErrorMessages.INVALID_PHONE_NUMBER_LENGTH_ERR);
     } else {
       isPhoneNumberValid = true;
     }

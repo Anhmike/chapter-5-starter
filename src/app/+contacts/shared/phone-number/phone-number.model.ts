@@ -1,5 +1,5 @@
-import { telephoneCountryCodes } from './phone-number-country-codes';
-import { phoneNumberErrorMessages } from './phone-number-error-messages';
+import { TelephoneCountryCodes } from './phone-number-country-codes';
+import { PhoneNumberErrorMessages } from './phone-number-error-messages';
 
 export class PhoneNumber {
   private areaCode: string;
@@ -40,10 +40,10 @@ export class PhoneNumber {
     countryCode = countryCode.toLowerCase();
     let telephoneCountryCode: string = '';
 
-    if (telephoneCountryCodes[countryCode]) {
-      telephoneCountryCode = `+${ telephoneCountryCodes[countryCode] }`;
+    if (TelephoneCountryCodes[countryCode]) {
+      telephoneCountryCode = `+${ TelephoneCountryCodes[countryCode] }`;
     } else {
-      console.warn(phoneNumberErrorMessages.INVALID_COUNTRY_CODE_WARN);
+      console.warn(PhoneNumberErrorMessages.INVALID_COUNTRY_CODE_WARN);
     }
 
     return telephoneCountryCode;
@@ -63,7 +63,7 @@ export class PhoneNumber {
         formattedPhoneNumber = this.getHyphensFormattedPhoneNumber();
         break;
       default:
-        console.warn(phoneNumberErrorMessages.INVALID_FORMAT_WARN);
+        console.warn(PhoneNumberErrorMessages.INVALID_FORMAT_WARN);
         formattedPhoneNumber = this.getDefaultFormattedPhoneNumber();
     }
    

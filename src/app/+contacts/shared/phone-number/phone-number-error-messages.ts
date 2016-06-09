@@ -1,4 +1,4 @@
-export const phoneNumberErrorMessages = {
+export const PhoneNumberErrorMessages = {
     INVALID_PHONE_NUMBER_TYPE_ERR: `The phone number type you have entered is 
       invalid. The should number in a string or number format.`,
     INVALID_PHONE_NUMBER_LENGTH_ERR: `The phone number you have entered is not

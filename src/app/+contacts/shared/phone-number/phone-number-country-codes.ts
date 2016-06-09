@@ -1,4 +1,4 @@
-export const telephoneCountryCodes = {
+export const TelephoneCountryCodes = {
     'af': 4,
     'afg': 4,
     'al': 8,
