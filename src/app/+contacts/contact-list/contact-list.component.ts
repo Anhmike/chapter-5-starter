@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 import { Contact } from '../shared/models/contact.model';
 import { FavoriteIconDirective } from '../shared/favorite-icon/favorite-icon.directive';
 import { ShowContactsDirective } from '../shared/show-contacts/show-contacts.directive';
-import { PhoneNumberPipe } from '../shared/phone-number-pipe/phone-number.pipe';
+import { PhoneNumberPipe } from '../shared/phone-number/phone-number.pipe';
 
 @Component({
   moduleId: module.id,
