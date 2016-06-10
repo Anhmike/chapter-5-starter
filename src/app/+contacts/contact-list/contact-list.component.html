@@ -14,7 +14,9 @@
         <td class="mdl-data-table__cell--non-numeric"><i class="fa fa-user fa-lg"></i></td>
         <td class="mdl-data-table__cell--non-numeric">{{ contact.name }}</td>
         <td class="mdl-data-table__cell--non-numeric">{{ contact.email }}</td>
-        <td class="mdl-data-table__cell--non-numeric">{{ contact.number | phoneNumber : "dots" : "us" }}</td>
+        <td class="mdl-data-table__cell--non-numeric">
+          {{ contact.number | phoneNumber : "default" : contact.country }}
+        </td>
         <td class="mdl-data-table__cell--non-numeric"><i [caFavoriteIcon]="contact.favorite"></i></td>
       </tr>
     </tbody>

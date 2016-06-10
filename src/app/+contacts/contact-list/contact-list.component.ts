@@ -29,25 +29,29 @@ export class ContactListComponent {
       { 
         name: 'Adrian Directive',
         email: 'adrian.directive@example.com', 
-        number: '7035550123', 
+        number: '7035550123',
+        country: 'us',
         favorite: true 
       },
       {
         name: 'Rusty Component',
         email: 'rusty.component@example.com', 
         number: '4155550122', 
-        favorite: false 
+        country: 'us',
+        favorite: false
       },
       { 
         name: 'Jeff Pipe',
         email: 'jeff.pipe@example.com',
-        number: '7145550111', 
+        number: '7145550111',
+        country: 'uk',
         favorite: true
       },
       {
         name: 'Craig Service',
         email: 'craig.services@example.com',
         number: '6505550132',
+        country: 'uk',
         favorite: false 
       }
     ];

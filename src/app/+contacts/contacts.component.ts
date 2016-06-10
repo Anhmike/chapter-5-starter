@@ -17,29 +17,33 @@ export class ContactsAppComponent {
   constructor() {}
 
   ngOnInit() {
-    this.contacts = [
+    this.contacts = this.contacts = [
       { 
         name: 'Adrian Directive',
         email: 'adrian.directive@example.com', 
-        number: '7035550123', 
+        number: '7035550123',
+        country: 'us',
         favorite: true 
       },
       {
         name: 'Rusty Component',
         email: 'rusty.component@example.com', 
-        number: '4155550122', 
-        favorite: false 
+        number: '4415550122', 
+        country: 'bm',
+        favorite: false
       },
       { 
         name: 'Jeff Pipe',
         email: 'jeff.pipe@example.com',
-        number: '7145550111', 
+        number: '7145550111',
+        country: 'us',
         favorite: true
       },
       {
         name: 'Craig Service',
         email: 'craig.services@example.com',
-        number: '6505550132',
+        number: '5145550132',
+        country: 'ca',
         favorite: false 
       }
     ];

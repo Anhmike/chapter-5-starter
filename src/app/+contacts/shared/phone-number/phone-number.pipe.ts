@@ -7,13 +7,16 @@ import { PhoneNumberErrorMessages } from './phone-number-error-messages';
  * PhoneNumberPipe
  * ===============
  * The PhoneNumberPipe takes in a string or a number and transforms the input
- * into either a default format (XXX) XXX-XXXX, a number in dots format, 
- * XXX.XXX.XXXX, or hyphens format, XXX-XXX-XXXX, depending on with format the
- * user has specified. The PhoneNumberPipe will also apply the country code if 
- * that is entered as a second parameter.
+ * based on the format (optional) and country code (optional) If the format
+ * is not entered the number will be formatted using the (XXX) XXX-XXXX format
+ * by default.
  * 
- * No parameter
- * ------------
+ * The PhoneNumberPipe currently only supports phone numbers
+ * in the North American Numbering Plan. Please see 
+ * https://en.wikipedia.org/wiki/North_American_Numbering_Plan for details.
+ * 
+ * No parameter (default)
+ * ----------------------
  * Not using any parameter will result in the pipe transforming the value 
  * into a default phone format which is (XXX) XXX-XXXX.
  * 
@@ -45,8 +48,11 @@ import { PhoneNumberErrorMessages } from './phone-number-error-messages';
  * Country Code Parameter (optional)
  * ---------------------------------
  * The second parameter is the country code. Any valid 2 or 3 character
- * country code is acceptable. To see a list of accepted country codes
- * please see: http://www.worldatlas.com/aatlas/ctycodes.htm.
+ * country code is acceptable uses the North American Numbering Plan.
+ * To see a list of countries that use the North American Numbering Plan
+ * see https://en.wikipedia.org/wiki/North_American_Numbering_Plan. To find
+ * their respective country codes please see: 
+ * http://www.worldatlas.com/aatlas/ctycodes.htm.
  * 
  * Usage:
  * {{ <phone number> | phoneNumber : <format-type> : <country-code> }}
