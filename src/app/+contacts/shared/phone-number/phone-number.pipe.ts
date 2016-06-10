@@ -30,7 +30,7 @@ import { PhoneNumberErrorMessages } from './phone-number-error-messages';
  * "default", "dots", "hyphens". The parameter is case insensitive.
  * 
  * Usage:
- * {{ <phone number> | phoneNumber : <format-type> : <country-code> }}
+ * {{ <phone number> | phoneNumber : <format-type> }}
  * 
  * Examples:
  * {{ 7035551234 | phoneNumber : "default" }}
