@@ -49,7 +49,7 @@ export class PhoneNumber {
     return telephoneCountryCode;
   }
 
-  private getFormattedPhoneNumberStr(format: string = '', countryCode: string = ''): string {
+  private getFormattedPhoneNumberStr(format: string = 'default', countryCode?: string): string {
     let formattedPhoneNumber: string = '';
 
     switch (format.toLowerCase()) {
@@ -70,13 +70,14 @@ export class PhoneNumber {
     return formattedPhoneNumber;
   }
 
-  public getFormattedPhoneNumber(format: string = '', countryCode: string = ''): string {
+  public getFormattedPhoneNumber(format: string = 'default', countryCode?: string): string {
     let formattedPhoneNumber: string = this.getFormattedPhoneNumberStr(format);
     let internationalCountryCodeStr: string = '';
 
     if (countryCode && format) {
       internationalCountryCodeStr = this.getInternationCountryCodeStr(countryCode);
-      formattedPhoneNumber =  `${internationalCountryCodeStr} ${formattedPhoneNumber}`;
+      formattedPhoneNumber = internationalCountryCodeStr ?
+        `${internationalCountryCodeStr} ${formattedPhoneNumber}` : `${formattedPhoneNumber}`;
     }
 
     return formattedPhoneNumber;
