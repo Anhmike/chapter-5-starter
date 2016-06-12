@@ -1,4 +1,4 @@
-import { TelephoneCountryCodes } from './phone-number-country-codes';
+import { CountryDialingCodes } from './country-dialing-codes';
 import { PhoneNumberErrorMessages } from './phone-number-error-messages';
 
 export class PhoneNumber {
@@ -38,10 +38,10 @@ export class PhoneNumber {
 
   private getInternationCountryCodeStr(countryCode: string): string {
     countryCode = countryCode.toLowerCase();
-    let telephoneCountryCode: string = '';
+    let countryDialingCode: string = '';
 
-    if (TelephoneCountryCodes[countryCode]) {
-      telephoneCountryCode = `+${ TelephoneCountryCodes[countryCode] }`;
+    if (CountryDialingCodes[countryCode]) {
+      telephoneCountryCode = `+${ CountryDialingCodes[countryCode] }`;
     } else {
       console.warn(PhoneNumberErrorMessages.INVALID_COUNTRY_CODE_WARN);
     }
