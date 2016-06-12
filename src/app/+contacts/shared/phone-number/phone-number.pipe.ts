@@ -6,19 +6,21 @@ import { PhoneNumberErrorMessages } from './phone-number-error-messages';
 /**
  * PhoneNumberPipe
  * ===============
- * The PhoneNumberPipe takes in a string or a number and transforms the input
- * based on the format (optional) and country code (optional). If the format
- * is not entered, the number will be formatted using the (XXX) XXX-XXXX format
- * by default.
+ * The PhoneNumberPipe takes in a string or a number and transforms that input
+ * into a formatted format. The format is optional and if it is not entered as
+ * a paramter then the number will be formatted using the (XXX) XXX-XXXX format
+ * by default. there is a format based on the format (optional) and country 
+ * code (optional). If the format is not entered, the number will be formatted
+ * using the (XXX) XXX-XXXX format by default.
  * 
  * The PhoneNumberPipe currently only supports phone numbers
  * in the North American Numbering Plan. Please see 
  * https://en.wikipedia.org/wiki/North_American_Numbering_Plan for details.
  * 
- * No parameter
- * ------------
- * Not using a parameter will result in the pipe transforming the value into
- * the default phone format which is (XXX) XXX-XXXX.
+ * No parameters
+ * -------------
+ * Not specifing a format parameter will result in the pipe transforming the
+ * value into a default phone format, which is (XXX) XXX-XXXX.
  * 
  * Usage:
  * {{ <phone number> | phoneNumber }}
@@ -29,8 +31,10 @@ import { PhoneNumberErrorMessages } from './phone-number-error-messages';
  * 
  * Phone Number Format Parameter (optional)
  * ----------------------------------------
- * The first parameter is the phone format. Acceptable parameters are 
- * "default", "dots", "hyphens". The parameter is case insensitive.
+ * The first parameter is the phone format which is optional. If there is no
+ * format entered, then the default format, (XXX) XXX- XXXX, will be used.
+ * Acceptable parameters are "default", "dots", "hyphens". The phone number 
+ * parameter is case insensitive.
  * 
  * Usage:
  * {{ <phone number> | phoneNumber : <format-type> }}
@@ -47,11 +51,11 @@ import { PhoneNumberErrorMessages } from './phone-number-error-messages';
  * 
  * Country Code Parameter (optional)
  * ---------------------------------
- * The second parameter is the country code. Any valid 2 character country code
- * that uses the North American Numbering Plan is accepted. To see a list of
- * countries that use the North American Numbering Plan see 
+ * The second parameter is the country code. Any valid two character country
+ * code that uses the North American Numbering Plan is acceptable. To see a list
+ * of countries that use the North American Numbering Plan see 
  * https://en.wikipedia.org/wiki/North_American_Numbering_Plan. To find their
- * respective country codes please see: 
+ * respective two character country code please see: 
  * http://www.worldatlas.com/aatlas/ctycodes.htm. The country code parameter is
  * case insensitive.
  * 

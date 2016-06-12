@@ -41,12 +41,12 @@ export class PhoneNumber {
     let countryDialingCode: string = '';
 
     if (CountryDialingCodes[countryCode]) {
-      telephoneCountryCode = `+${ CountryDialingCodes[countryCode] }`;
+      countryDialingCode = `+${ CountryDialingCodes[countryCode] }`;
     } else {
       console.warn(PhoneNumberErrorMessages.INVALID_COUNTRY_CODE_WARN);
     }
 
-    return telephoneCountryCode;
+    return countryDialingCode;
   }
 
   private getFormattedPhoneNumberStr(format: string = 'default', countryCode?: string): string {
